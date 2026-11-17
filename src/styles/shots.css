@@ -1,0 +1,29 @@
+/* Per-shot animation styles. Prefix classes with the shot name, e.g. .shot-01-... */
+.shot {
+  position: relative;
+  width: min(100%, 960px);
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #000;
+}
+
+.shot-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--accent);
+  transform: translate(-50%, -50%);
+  animation: shot-01-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes shot-01-pulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+  50%      { transform: translate(-50%, -50%) scale(2.5); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shot-dot { animation: none; }
+}
